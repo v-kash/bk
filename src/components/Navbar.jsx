@@ -164,28 +164,18 @@ export default function BKFruitsHeader() {
           }}
         >
           {/* Logo */}
-          <div
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontWeight: 700,
-              fontSize: "26px",
-              color: "#ffffff",
-              letterSpacing: "0.06em",
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-            }}
-          >
-            <span
+          {/* Logo */}
+          <a href="#home" style={{ display: "flex", alignItems: "center" }}>
+            <img
+              src="/logo2.png"
+              alt="BK Fruits Logo"
               style={{
-                width: "6px",
-                height: "24px",
-                background: "linear-gradient(to bottom, #A2B568, #068176)",
-                borderRadius: "2px",
+                height: "115px",
+                width: "auto",
+                objectFit: "contain",
               }}
             />
-            BK Fruits
-          </div>
+          </a>
 
           {/* Desktop Nav */}
           <nav
