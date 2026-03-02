@@ -20,7 +20,6 @@ const points = [
   },
 ];
 
-// dark = #15282F teal, light = #F2EBE0 parchment — checkerboard pattern
 const tileTheme = [
   {
     bg: "#15282F",
@@ -54,9 +53,11 @@ const tileTheme = [
 
 export default function WhyChooseUs() {
   return (
-    <section style={{ background: "#EFE6D8" }}>
-      <div className="max-w-7xl mx-auto px-6 md:px-10 pt-24 pb-0">
-        {/* ── Label ── */}
+    <section id="why-us" style={{ background: "#FDFBF8" }}>
+      {/* ── Header Area ── */}
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-10 pt-14 md:pt-16 pb-0">
+        
+        {/* Label */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -70,14 +71,14 @@ export default function WhyChooseUs() {
           </span>
         </motion.div>
 
-        {/* ── Heading + Intro ── */}
-        <div className="grid md:grid-cols-2 gap-10 mb-16">
+        {/* Heading + Intro */}
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-12 md:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.1 }}
-            className="font-playfair text-4xl md:text-5xl leading-tight text-[#1C1410]"
+            className="font-playfair text-3xl sm:text-4xl md:text-5xl leading-tight text-[#1C1410]"
           >
             Why Leading Buyers
             <br />
@@ -98,10 +99,9 @@ export default function WhyChooseUs() {
         </div>
       </div>
 
-      {/* ── Checkerboard Grid — full bleed ── */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 pb-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {" "}
+      {/* ── Responsive Grid ── */}
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-10 pb-20 md:pb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           {points.map((item, i) => {
             const theme = tileTheme[i];
             return (
@@ -115,10 +115,10 @@ export default function WhyChooseUs() {
                   delay: i * 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="group relative px-10 md:px-14 py-14 md:py-16 overflow-hidden"
+                className="group relative px-6 sm:px-8 md:px-14 py-10 sm:py-12 md:py-16 overflow-hidden rounded-xl md:rounded-none"
                 style={{ background: theme.bg }}
               >
-                {/* Hover shimmer overlay */}
+                {/* Hover shimmer */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100"
                   style={{
@@ -130,32 +130,29 @@ export default function WhyChooseUs() {
                   }}
                 />
 
-                {/* Large background number */}
+                {/* Background Number */}
                 <span
-                  className="absolute top-6 right-8 font-playfair text-[7rem] leading-none select-none pointer-events-none"
-                  style={{
-                    color: theme.number,
-                    transition: "color 0.4s",
-                  }}
+                  className="absolute top-1 right-5 sm:top-6 sm:right-8 font-playfair text-[4.5rem] sm:text-[6rem] md:text-[7rem] leading-none select-none pointer-events-none"
+                  style={{ color: theme.number }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
-                {/* Amber top-left accent dot */}
+                {/* Accent Dot */}
                 <div
-                  className="w-2 h-2 rounded-full mb-8"
+                  className="w-2 h-2 rounded-full mb-6 sm:mb-8"
                   style={{ background: theme.accent }}
                 />
 
                 {/* Title */}
                 <h3
-                  className="font-playfair text-2xl md:text-[1.65rem] leading-snug mb-4 relative z-10"
+                  className="font-playfair text-xl sm:text-2xl md:text-[1.65rem] leading-snug mb-4 relative z-10"
                   style={{ color: theme.title }}
                 >
                   {item.title}
                 </h3>
 
-                {/* Thin amber rule */}
+                {/* Accent Line */}
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: "2.5rem" }}
@@ -167,7 +164,7 @@ export default function WhyChooseUs() {
 
                 {/* Description */}
                 <p
-                  className="text-sm leading-relaxed relative z-10 max-w-xs"
+                  className="text-sm leading-relaxed relative z-10 md:max-w-xs"
                   style={{ color: theme.desc }}
                 >
                   {item.desc}

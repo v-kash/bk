@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-const SEASONS = ["Summer", "Monsoon", "Winter", "Year Round"];
+const SEASONS = ["Summer", "Monsoon", "Winter"];
 
 const products = [
   {
@@ -75,6 +75,23 @@ const products = [
     description:
       "Naturally sweet and widely supplied for both retail and bulk demand.",
     image: "/hero4.jpeg",
+  },
+
+  {
+    id: 10,
+    title: "Sapota (Chikoo)",
+    season: "Summer",
+    description:
+      "Soft brown fruit with caramel-like sweetness, widely consumed in South India.",
+    image: "/hero6.jpeg",
+  },
+  {
+    id: 11,
+    title: "Mosambi (Sweet Lime)",
+    season: "Summer",
+    description:
+      "Juicy and mildly sweet citrus fruit, perfect for fresh juice supply.",
+    image: "/hero14.jpeg",
   },
 ];
 
@@ -151,6 +168,8 @@ export default function ProductsSection() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
   const [activeSeason, setActiveSeason] = useState("Summer");
+  const [activeCard, setActiveCard] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const filteredProducts = products.filter(
     (product) => product.season === activeSeason,
@@ -164,9 +183,9 @@ export default function ProductsSection() {
   const product = products[current];
 
   return (
-    <section style={{ background: "#F2EBE0" }}>
+    <section id="products" style={{ background: "#F2EBE0" }}>
       {/* ── Header ── */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 pt-20 pb-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 pt-16 pb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -226,7 +245,7 @@ export default function ProductsSection() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 pb-20">
         {/* ── Season Menu + Product Slider ── */}
-        <div className="max-w-7xl mx-auto px-6 md:px-10 pb-15">
+        <div className="max-w-7xl mx-auto  md:px-10 pb-15">
           {/* Season Menu */}
           <div className="flex gap-8 border-b border-[#E6DFD6] mb-14">
             {SEASONS.map((season) => (
@@ -266,7 +285,12 @@ export default function ProductsSection() {
                     delay: i * 0.09,
                     ease: "easeOut",
                   }}
-                  className="group cursor-pointer relative aspect-[3/4]  overflow-hidden"
+                  onClick={() => {
+                    if (window.innerWidth < 768) {
+                      setSelectedProduct(product);
+                    }
+                  }}
+                  className="group cursor-pointer relative aspect-[3/4] overflow-hidden"
                 >
                   {/* Image */}
                   <Image
@@ -281,31 +305,34 @@ export default function ProductsSection() {
 
                   {/* Single block — title + panel move together */}
                   {/* Permanent title — always visible on image */}
-<div className="absolute left-0 right-0 bottom-0 px-4 py-3 bg-gradient-to-t from-black/60 to-transparent">
-  <h3 className="font-playfair text-[1rem] leading-snug text-white">
-    {product.title}
-  </h3>
-</div>
+                  <div className="absolute left-0 right-0 bottom-0 px-4 py-3 bg-gradient-to-t from-black/60 to-transparent">
+                    <h3 className="font-playfair text-[1rem] leading-snug text-white">
+                      {product.title}
+                    </h3>
+                  </div>
 
-{/* White panel — slides up on hover */}
-<div
-  className="absolute left-0 right-0 bottom-0 [transform:translateY(100%)] group-hover:[transform:translateY(0)]"
-  style={{
-    transition: "transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)",
-  }}
->
-  {/* Title repeated inside panel so it stays visible during slide */}
-  <div className="px-4 py-3 bg-gradient-to-t from-black/50 to-transparent">
-    <h3 className="font-playfair text-[1rem] leading-snug text-white">
-      {product.title}
-    </h3>
-  </div>
-  <div className="h-[100px] bg-white px-4 py-3 flex items-start">
-    <p className="text-[13px] text-[#5A5249] leading-relaxed line-clamp-4">
-      {product.description}
-    </p>
-  </div>
-</div>
+                  {/* White panel — slides up on hover */}
+                  <div
+                    className="absolute left-0 right-0 bottom-0 [transform:translateY(100%)] md:group-hover:[transform:translateY(0)]"
+                    style={{
+                      transform:
+                        activeCard === product.id ? "translateY(0)" : undefined,
+                      transition:
+                        "transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)",
+                    }}
+                  >
+                    {/* Title repeated inside panel so it stays visible during slide */}
+                    <div className="px-4 py-3 bg-gradient-to-t from-black/50 to-transparent">
+                      <h3 className="font-playfair text-[1rem] leading-snug text-white">
+                        {product.title}
+                      </h3>
+                    </div>
+                    <div className="h-[100px] bg-white px-4 py-3 flex items-start">
+                      <p className="text-[13px] text-[#5A5249] leading-relaxed line-clamp-4">
+                        {product.description}
+                      </p>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -332,21 +359,74 @@ export default function ProductsSection() {
               We source custom varieties on request. Talk to our supply team.
             </p>
           </div>
-          <button
-            className="shrink-0 px-9 py-3 text-xs tracking-[0.25em] uppercase text-white"
-            style={{
-              background: "#15282F",
-              borderRadius: 2,
-              cursor: "pointer",
-              transition: "background 0.3s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#068176")}
-            onMouseLeave={(e) => (e.currentTarget.style.background = "#15282F")}
+          <a
+            href="#contact"
+            className="
+    w-full sm:w-auto
+    text-center
+    px-9 py-4 sm:py-3
+    text-xs tracking-[0.25em] uppercase text-white
+    bg-[#15282F]
+    rounded-md
+    transition-all duration-300
+    hover:bg-[#068176]
+    active:scale-[0.98]
+  "
           >
             Contact Our Team
-          </button>
+          </a>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {selectedProduct && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/60 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setSelectedProduct(null)}
+          >
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full md:max-w-lg bg-white rounded-t-2xl md:rounded-2xl overflow-hidden"
+            >
+              {/* Image */}
+              <div className="relative h-60 w-full">
+                <Image
+                  src={selectedProduct.image}
+                  alt={selectedProduct.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="font-playfair text-2xl mb-3 text-[#1C1410]">
+                  {selectedProduct.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-[#5A5249]">
+                  {selectedProduct.description}
+                </p>
+              </div>
+
+              {/* Close */}
+              <button
+                onClick={() => setSelectedProduct(null)}
+                className="absolute top-4 right-4 text-white text-xl"
+              >
+                ✕
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

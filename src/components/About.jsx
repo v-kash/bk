@@ -22,6 +22,7 @@ const lineGrow = {
 export default function AboutSection() {
   return (
     <section
+    id="about"
       className="relative overflow-hidden py-36 px-8"
       style={{ background: "#F2EBE0", color: "#1C1410" }}
     >

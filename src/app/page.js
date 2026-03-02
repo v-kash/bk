@@ -8,6 +8,7 @@ import BKFruitsAbout from "@/components/About";
 import AboutSection from "@/components/About2";
 import ProductsSection from "@/components/product";
 import WhyChooseUs from "@/components/Whyus";
+import ContactSection from "@/components/Contact";
 
 export default function Page() {
   return (
@@ -19,6 +20,7 @@ export default function Page() {
             <AboutSection />
             <ProductsSection />
             <WhyChooseUs />
+            <ContactSection />
 
     </main>
   );

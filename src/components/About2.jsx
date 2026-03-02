@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 
-
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -14,8 +13,9 @@ const fadeUp = {
 export default function AboutSection() {
   return (
     <section
-      className="relative overflow-hidden py-16 md:py-20 px-6 md:px-10 lg:px-12"
-      style={{ background: "#F2EBE0", color: "#1C1410" }}
+      id="about"
+      className="relative overflow-hidden py-14 md:py-20 px-5 md:px-10 lg:px-12"
+      style={{ background: "#FDFBF8", color: "#1C1410" }}
     >
       <style>{`
         .about-grain::before {
@@ -35,42 +35,41 @@ export default function AboutSection() {
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_85%_15%,rgba(193,127,62,0.1),transparent_55%)]" />
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_10%_85%,rgba(162,181,104,0.07),transparent_50%)]" />
 
-      {/* Massive Background Typography */}
+      {/* Background Typography (Responsive) */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <h2
-          className="font-playfair text-[160px] md:text-[220px] tracking-widest select-none"
-          style={{ color: "rgba(193,127,62,0.06)" }}
+          className="font-playfair text-[70px] sm:text-[110px] md:text-[220px] tracking-widest select-none text-center"
+          style={{ color: "rgba(193,127,62,0.05)" }}
         >
           BK FRUITS
         </h2>
       </div>
 
-<div className="relative z-10 max-w-7xl mx-auto px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Label */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex items-center gap-4 mb-6"
+          className="flex items-center gap-3 mb-5"
         >
-          <div className="h-[1px] w-12" style={{ background: "#C17F3E" }} />
+          <div className="h-[1px] w-8 md:w-12" style={{ background: "#C17F3E" }} />
           <span
-            className="text-xs tracking-[0.3em] uppercase"
+            className="text-[10px] md:text-xs tracking-[0.25em] uppercase"
             style={{ color: "#C17F3E" }}
           >
             Who We Are
           </span>
         </motion.div>
 
-        {/* Main Heading */}
+        {/* Heading */}
         <motion.h2
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="font-playfair text-4xl md:text-6xl leading-[1.05] mb-20 md:mb-24 max-w-4xl"
-          style={{ color: "#1C1410" }}
+          className="font-playfair text-3xl sm:text-4xl md:text-6xl leading-[1.1] mb-14 md:mb-24 max-w-4xl"
         >
           Supplying Freshness.
           <br />
@@ -80,26 +79,24 @@ export default function AboutSection() {
         </motion.h2>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-20 md:gap-24 items-start">
-          {/* Left — Body copy */}
+        <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-start">
+          {/* Left Content */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="space-y-6 text-lg leading-relaxed"
+            className="space-y-5 text-base md:text-lg leading-relaxed"
             style={{ color: "rgba(28,20,16,0.75)" }}
           >
             <p>
               BK Fruits is a dedicated wholesale fruit supplier committed to
               delivering fresh, high-quality produce at competitive wholesale
-              prices. We source directly from trusted farmers to ensure
-              consistency, freshness, and dependable supply across every order.
+              prices.
             </p>
             <p>
-              Our focus goes beyond just distribution. We build long-term
-              partnerships with retailers, hotels, and bulk buyers who value
-              transparency, quality assurance, and timely logistics.
+              We source directly from trusted farmers to ensure consistency,
+              freshness, and dependable supply across every order.
             </p>
             <p>
               Every shipment is carefully handled and quality-checked to
@@ -107,59 +104,32 @@ export default function AboutSection() {
             </p>
           </motion.div>
 
-          {/* Right — Mission box */}
+          {/* Right Mission Box */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="relative p-10"
+            className="relative p-6 sm:p-8 md:p-10 mt-6 md:mt-0"
             style={{
               border: "1px solid rgba(193,127,62,0.3)",
-              background: "rgba(255,255,255,0.35)",
+              background: "rgba(255,255,255,0.45)",
               backdropFilter: "blur(4px)",
             }}
           >
-            {/* Floating label */}
             <div
-              className="absolute -top-3 left-10 px-4 text-xs tracking-[0.3em] uppercase"
+              className="absolute -top-3 left-6 px-3 text-[10px] tracking-[0.25em] uppercase"
               style={{ background: "#F2EBE0", color: "#C17F3E" }}
             >
               Our Mission
             </div>
 
-            {/* Corner accents */}
-            <div
-              className="absolute top-3 right-3 w-5 h-5 border-t border-r"
-              style={{ borderColor: "rgba(193,127,62,0.4)" }}
-            />
-            <div
-              className="absolute bottom-3 left-3 w-5 h-5 border-b border-l"
-              style={{ borderColor: "rgba(193,127,62,0.4)" }}
-            />
-
-            <p
-              className="font-playfair text-2xl leading-relaxed"
-              style={{ color: "#1C1410" }}
-            >
+            <p className="font-playfair text-lg sm:text-xl md:text-2xl leading-relaxed">
               To provide reliable fruit sourcing solutions while maintaining the
               highest standards of freshness, consistency, and service.
             </p>
           </motion.div>
         </div>
-
-        {/* Bottom trust strip */}
-        {/* <motion.div
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="mt-24 pt-10 text-sm tracking-[0.25em] uppercase flex items-center gap-6"
-          style={{ borderTop: "1px solid rgba(193,127,62,0.2)", color: "rgba(28,20,16,0.5)" }}
-        >
-          <span>Trusted by retailers</span>
-          <span style={{ color: "#C17F3E", opacity: 0.5 }}>·</span>
-          <span>Distributors</span>
-          <span style={{ color: "#C17F3E", opacity: 0.5 }}>·</span>
-          <span>Bulk buyers</span>
-        </motion.div> */}
       </div>
     </section>
   );
