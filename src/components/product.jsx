@@ -6,92 +6,201 @@ import { useState } from "react";
 const SEASONS = ["Summer", "Monsoon", "Winter"];
 
 const products = [
+  // SUMMER
   {
     id: 1,
-    title: "Alphonso Mango",
-    season: "Summer",
-    description:
-      "Rich, saffron-coloured mango with intense sweetness and smooth texture. A premium summer favourite.",
-    image: "/hero15.jpeg",
-  },
-  {
-    id: 2,
-    title: "Kesar Mango",
-    season: "Summer",
-    description:
-      "Bright orange flesh with balanced sweetness and a distinctive aroma. Popular across South India.",
-    image: "/hero11.jpeg",
-  },
-  {
-    id: 3,
     title: "Banganapalli Mango",
     season: "Summer",
     description:
-      "Large, fibreless mango known for its smooth pulp and uniform sweetness.",
-    image: "/hero15.jpeg",
+      "Large, fibreless mango known for its smooth golden pulp and naturally rich sweetness. Highly valued for its premium quality and export demand.",
+    image: "/mango.jpeg",
+  },
+  {
+    id: 2,
+    title: "Pineapple",
+    season: "Summer",
+    description:
+      "Golden tropical fruit with a vibrant sweet-tangy flavour and juicy texture. Widely enjoyed fresh and used in juices, desserts, and fruit salads.",
+    image: "/pineapple.jpeg",
+  },
+  {
+    id: 3,
+    title: "Dragon Fruit",
+    season: "Summer",
+    description:
+      "Exotic fruit with bright pink skin and mildly sweet white flesh dotted with tiny seeds. Known for its refreshing taste and high nutritional value.",
+    image: "/dragon.jpeg",
   },
   {
     id: 4,
     title: "Watermelon",
     season: "Summer",
     description:
-      "Refreshing and naturally sweet fruit, ideal for peak summer demand.",
-    image: "/hero5.jpeg",
+      "Refreshing fruit with deep red juicy flesh and naturally sweet flavour. Highly popular during hot seasons due to its hydrating properties.",
+    image: "/watermelon2.jpeg",
   },
   {
     id: 5,
-    title: "Sapota (Chikoo)",
+    title: "Muskmelon",
     season: "Summer",
     description:
-      "Soft brown fruit with caramel-like sweetness, widely consumed in South India.",
-    image: "/hero6.jpeg",
+      "Fragrant melon with soft orange flesh and smooth sweetness. A refreshing fruit commonly consumed fresh or blended into summer drinks.",
+    image: "/muskmelon.jpeg",
   },
   {
     id: 6,
-    title: "Mosambi (Sweet Lime)",
-    season: "Summer",
-    description:
-      "Juicy and mildly sweet citrus fruit, perfect for fresh juice supply.",
-    image: "/hero14.jpeg",
-  },
-  {
-    id: 7,
-    title: "Pomegranate",
-    season: "Monsoon",
-    description: "Deep red arils with balanced sweetness and good shelf life.",
-    image: "/hero3.jpeg",
-  },
-  {
-    id: 8,
-    title: "Cavendish Banana",
-    season: "Year Round",
-    description: "Uniform premium bananas available throughout the year.",
-    image: "/hero4.jpeg",
-  },
-  {
-    id: 9,
-    title: "Robusta Banana",
-    season: "Year Round",
-    description:
-      "Naturally sweet and widely supplied for both retail and bulk demand.",
-    image: "/hero4.jpeg",
-  },
-
-  {
-    id: 10,
     title: "Sapota (Chikoo)",
     season: "Summer",
     description:
-      "Soft brown fruit with caramel-like sweetness, widely consumed in South India.",
-    image: "/hero6.jpeg",
+      "Soft brown fruit with caramel-like sweetness and grainy texture. Widely consumed across India for its rich flavour and natural energy content.",
+    image: "/chikoo.jpeg",
   },
   {
-    id: 11,
+    id: 7,
     title: "Mosambi (Sweet Lime)",
     season: "Summer",
     description:
-      "Juicy and mildly sweet citrus fruit, perfect for fresh juice supply.",
-    image: "/hero14.jpeg",
+      "Juicy citrus fruit with mild sweetness and refreshing taste. Perfect for fresh juice and known for its high vitamin C content.",
+    image: "/sweetlime.jpeg",
+  },
+  {
+    id: 8,
+    title: "Lychee",
+    season: "Summer",
+    description:
+      "Small tropical fruit with translucent juicy pulp and floral sweetness. Highly prized for its refreshing flavour and delicate aroma.",
+    image: "/lychee.jpeg",
+  },
+  // MONSOON
+  {
+    id: 9,
+    title: "Pomegranate",
+    season: "Monsoon",
+    description:
+      "Deep red arils with balanced sweetness and refreshing juiciness. Known for its long shelf life and high nutritional value.",
+    image: "/hero15.jpeg",
+  },
+  {
+    id: 10,
+    title: "Jamun",
+    season: "Monsoon",
+    description:
+      "Dark purple fruit with a unique sweet and slightly tangy flavour. Widely appreciated for its refreshing taste during the monsoon season.",
+    image: "/jamun.jpeg",
+  },
+  {
+    id: 11,
+    title: "Pear",
+    season: "Monsoon",
+    description:
+      "Crisp and juicy fruit with mild sweetness and smooth texture. A versatile fruit enjoyed fresh or in salads and desserts.",
+    image: "/pear.jpeg",
+  },
+  {
+    id: 12,
+    title: "Plum",
+    season: "Monsoon",
+    description:
+      "Soft, juicy fruit with a vibrant red skin and sweet-tart flavour. Popular for fresh eating and culinary uses.",
+    image: "/plums.jpeg",
+  },
+  {
+    id: 13,
+    title: "Peach",
+    season: "Monsoon",
+    description:
+      "Velvety-skinned fruit with aromatic sweetness and juicy flesh. Highly valued for its refreshing taste and attractive appearance.",
+    image: "/peach.jpeg",
+  },
+  {
+    id: 14,
+    title: "Black Grapes",
+    season: "Monsoon",
+    description:
+      "Sweet and juicy grapes with deep purple skin and rich flavour. Popular for both fresh consumption and juice production.",
+    image: "/blackg.jpeg",
+  },
+  {
+    id: 15,
+    title: "Green Grapes",
+    season: "Monsoon",
+    description:
+      "Crisp grapes with refreshing sweetness and light acidity. Known for their vibrant taste and high consumer demand.",
+    image: "/greeng.jpeg",
+  },
+  {
+    id: 16,
+    title: "Guava",
+    season: "Monsoon",
+    description:
+      "Fragrant fruit with pale green skin and sweet pink or white flesh. Rich in vitamin C and widely enjoyed across India.",
+    image: "/guava.jpeg",
+  },
+
+  // WINTER
+  {
+    id: 17,
+    title: "Apple",
+    season: "Winter",
+    description:
+      "Crisp and juicy fruit with balanced sweetness and refreshing crunch. One of the most widely consumed fruits globally.",
+    image: "/apple.jpeg",
+  },
+  {
+    id: 18,
+    title: "Orange",
+    season: "Winter",
+    description:
+      "Bright citrus fruit with juicy segments and refreshing tangy sweetness. A staple winter fruit known for its vitamin C richness.",
+    image: "/orange.jpeg",
+  },
+  {
+    id: 19,
+    title: "Strawberry",
+    season: "Winter",
+    description:
+      "Vibrant red berry with a perfect balance of sweetness and light acidity. Highly popular for desserts and fresh consumption.",
+    image: "/strawberry.jpeg",
+  },
+  {
+    id: 20,
+    title: "Kiwi",
+    season: "Winter",
+    description:
+      "Small fruit with fuzzy brown skin and bright green flesh. Known for its tangy sweetness and rich nutritional profile.",
+    image: "/kiwi.jpeg",
+  },
+  {
+    id: 21,
+    title: "Papaya",
+    season: "Winter",
+    description:
+      "Tropical fruit with soft orange flesh and naturally sweet flavour. Appreciated for its smooth texture and digestive benefits.",
+    image: "/papaya.jpeg",
+  },
+  {
+    id: 22,
+    title: "Pineapple",
+    season: "Winter",
+    description:
+      "Golden tropical fruit with a vibrant sweet-tart flavour and juicy texture. Widely used for fresh consumption and beverages.",
+    image: "/pineapple.jpeg",
+  },
+  {
+    id: 23,
+    title: "Custard Apple",
+    season: "Winter",
+    description:
+      "Creamy fruit with soft white pulp and naturally sweet flavour. Known for its rich texture and unique tropical taste.",
+    image: "/capple.jpeg",
+  },
+  {
+    id: 24,
+    title: "Cavendish Banana",
+    season: "Winter",
+    description:
+      "Premium quality banana with uniform size, natural sweetness, and smooth texture. A reliable fruit available throughout the winter season.",
+    image: "/banana.jpeg",
   },
 ];
 
@@ -327,8 +436,8 @@ export default function ProductsSection() {
                         {product.title}
                       </h3>
                     </div>
-                    <div className="h-[100px] bg-white px-4 py-3 flex items-start">
-                      <p className="text-[13px] text-[#5A5249] leading-relaxed line-clamp-4">
+                    <div className="h-[100px] bg-white px-4 py-2 flex items-start">
+                      <p className="text-[13px]  text-[#5A5249] leading-relaxed line-clamp-4">
                         {product.description}
                       </p>
                     </div>
