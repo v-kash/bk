@@ -2,18 +2,23 @@
 import { motion } from "framer-motion";
 
 const details = [
-  { label: "Call", value: "+91 98765 43210", href: "tel:+919876543210" },
+  { label: "Call", value: "+91 87609 94783", href: "tel:+918760994783" },
   {
     label: "Email",
-    value: "trade@bkfruits.com",
-    href: "mailto:trade@bkfruits.com",
+    value: "Pandiyarajampr@gmail.com",
+    href: "mailto:Pandiyarajampr@gmail.com",
   },
   {
     label: "WhatsApp",
-    value: "+91 98765 43210",
-    href: "https://wa.me/919876543210",
+    value: "+91 87609 94783",
+    href: "https://wa.me/918760994783",
   },
-  { label: "Office", value: "Ahmedabad, Gujarat", href: null },
+  {
+    label: "Office",
+    value: null,
+    address: ["No.32, Yanaikkal Street,", "Simmakal, Madurai – 625001,", "Tamil Nadu"],
+    href: null,
+  },
 ];
 
 export default function ContactSection() {
@@ -86,7 +91,8 @@ export default function ContactSection() {
 
       {/* Contact Items */}
       <div className="max-w-7xl mx-auto px-5 md:px-10 py-10">
-        <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+        <div className="flex flex-col items-center gap-8">
+        <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-22 flex-wrap w-full">
           {details.map((d, i) => (
             <motion.div
               key={i}
@@ -94,18 +100,30 @@ export default function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex flex-col gap-1"
+              className="flex flex-col gap-1 min-w-0"
             >
               <span className="text-[10px] tracking-[0.25em] uppercase text-[rgba(193,127,62,0.7)]">
                 {d.label}
               </span>
 
-              {d.href ? (
+              {/* Multi-line address */}
+              {d.address ? (
+                <div className="flex flex-col gap-0.5">
+                  {d.address.map((line, li) => (
+                    <span
+                      key={li}
+                      className="font-playfair text-lg md:text-xl text-[rgba(242,235,224,0.6)] leading-snug"
+                    >
+                      {line}
+                    </span>
+                  ))}
+                </div>
+              ) : d.href ? (
                 <a
                   href={d.href}
                   target={d.href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="font-playfair text-xl md:text-2xl text-[#F2EBE0] transition-colors duration-300 hover:text-[#C17F3E]"
+                  className="font-playfair text-xl md:text-2xl text-[#F2EBE0] transition-colors duration-300 hover:text-[#C17F3E] break-all"
                 >
                   {d.value}
                 </a>
@@ -117,19 +135,18 @@ export default function ContactSection() {
             </motion.div>
           ))}
 
-          {/* Spacer for Desktop */}
-          <div className="hidden md:block flex-1" />
+        </div>
 
-          {/* CTA */}
+          {/* CTA - Centered below contacts */}
           <motion.a
-            href="mailto:trade@bkfruits.com"
+            href="mailto:Pandiyarajampr@gmail.com"
             initial={{ opacity: 0, scale: 0.92 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="mt-6 md:mt-0 w-full md:w-auto text-center inline-flex justify-center items-center gap-3 px-8 py-4"
+            className="text-center inline-flex justify-center items-center gap-3 px-10 py-4"
             style={{ background: "#C17F3E", color: "#1C1410" }}
           >
             <span className="font-playfair text-sm tracking-wide">
